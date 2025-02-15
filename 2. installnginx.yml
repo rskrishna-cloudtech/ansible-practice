@@ -1,0 +1,15 @@
+---
+- name: Installing ngix server in remotenode.
+  hosts: remotenode
+  tasks:
+  - name: Install nginx
+    ansible.builin.dnf:
+      name: nginx
+      stage: installed
+
+  - name: Start the nginx servive
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+...
