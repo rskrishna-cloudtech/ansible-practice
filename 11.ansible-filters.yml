@@ -1,0 +1,63 @@
+---
+- name: Ansible Filters
+  hosts: localhost
+  tasks:
+  - name: Converting the string to integer values.
+    vars:
+      number: 6
+    ansible.builtin.debug:
+      msg: "The given number is < 10."
+      when: number | int > 10
+  
+  - name: Converting the string into integer values.
+    vars:
+      number: 20
+    ansible.builtin.debug:
+      msg: "The given number is > 10"
+      when: number | int > 10
+
+  - name: Set the default value to the undefined values.
+    ansible.builtin.bebug:
+      msg: "The default value is: {{ variable | default('Default Value')}}"
+
+  - name: Converting the lower case to UPPER case letters.
+    vars:
+      string: uppercase
+    ansible.builtin.debug:
+      msg: "The upper case letters are: {{ string | upper }}"
+
+  - name: Converting the UPPER case to lower case letters.
+    vars:
+      string: lowecase
+    ansible.builtin.debug:
+      msg: "The lower case letters are: {{ string | lower }}"
+  
+  - name: Printing the unique values from a list.
+    vars:
+      listvalues: [1,2,3,4,5,6,7,8,9,4,3,5,6,2,7,8]
+    ansible.builtin.debug:
+      msg: "The unique values in the list are: {{ listvalues | unique }}"
+
+  - name: Printing the min and max values from a list of values.
+    vars:
+      listvalues: [1,2,3,4,5,6,7,8,9,100,0]
+    ansible.builtin.debug:
+      msg: "The minimum value from the list is: {{ listvalues | min }}"
+      msg: "The maximum value from the list is: {{ listvalues | max }}"
+
+  - name: Converting the dictionary (Map) to items (List).
+    vars:
+      mydict:
+        name: siva
+        number: 1234567
+    ansible.builtin.debug:
+      msg: "The list of values converted from the dictionary are: {{ mydict | dict2items }}"
+
+  - name: Converting the items (List) to dictionary (Map).
+    vars:
+      listvalues: 
+      - {'key': 'name', 'value': 'siva'}
+      - {'key': 'number', 'value': 12345}
+    ansible.builtin.debug:
+      msg: "the dictionary of values converted from list are: {{ listvalues | items2dict }}"
+...

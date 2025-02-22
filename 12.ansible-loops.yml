@@ -1,0 +1,13 @@
+---
+- name: Ansible Loops
+  hosts: localhost
+  tasks:
+  - name: Installing multiple packages at a time using loops.
+    ansible.builtin.dnf:
+      name: "{{ item }}"
+      state: installed
+    loop:
+    - nginx
+    - git
+    - mysql
+...
