@@ -1,0 +1,8 @@
+- name: Declaring a variable in external files.
+  hosts: localhost
+  vars_files:
+  - variables.yml
+  tasks:
+  - name: Variable from external files.
+    ansible.builtin.debug:
+      msg: "Hello, {{ name }}. Welcome."

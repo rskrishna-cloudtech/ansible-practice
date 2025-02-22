@@ -1,0 +1,14 @@
+- name: Declaring a vaiable in the console prompt.
+  hosts: localhost
+  vars_promt:
+    - name: name
+      prompt: Enter your name
+      private: false
+    - name: password
+      prompt: Enter your password.
+      private: true
+  tasks:
+  - name: Variable via console prompt.
+    ansible.builtin.debug:
+      msg: "Hello, {{ name }}. Welcome. You have entered password as {{ password }}."
+      

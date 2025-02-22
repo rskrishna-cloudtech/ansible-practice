@@ -1,0 +1,12 @@
+- name: Declaring variable at task level.
+  hosts: localhost
+  vars:
+    name: Siva
+  tasks:
+  - name: Declaration.
+    vars:
+      name: Krishna
+    ansible.builtin.debug:
+      msg: "Hello, {{ name }}. Welcome."
+
+  

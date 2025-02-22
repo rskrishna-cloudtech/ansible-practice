@@ -1,0 +1,6 @@
+- name: Declaring a variable in inventory files.
+  hosts: localhost
+  tasks:
+  - name: Variable via the inventory file.
+    ansible.builtin.debug:
+      msg: "Hello, {{ name }}. Welcome."
