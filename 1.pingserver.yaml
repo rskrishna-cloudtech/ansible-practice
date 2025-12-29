@@ -3,5 +3,5 @@
   hosts: remotenode           # This is the group name in the inventory file.
   tasks:
   - name: Ping the remote node server.
-    ansible.builtin.ping
+    ansible.builtin.ping:
 ...

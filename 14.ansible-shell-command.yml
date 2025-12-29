@@ -1,0 +1,11 @@
+---
+- name: Ansible Shell vs Command modules.
+  hosts: localhost
+  tasks:
+  - name: Ansible shell module.
+    ansible.builtin.shell: "echo 'Hi, This is the shell module' > /tmp/ansible-shell.txt"
+
+  - name: Ansible command module.
+    ansible.builtin.command: "echo 'Hi, This is the command module' > /tmp/ansible-command.txt"
+
+...
