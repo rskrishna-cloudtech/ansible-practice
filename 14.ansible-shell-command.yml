@@ -6,7 +6,7 @@
     ansible.builtin.shell: "echo 'Hi, This is the shell module' > /tmp/ansible-shell.txt"
 
   - name: Ansible command module.
-    ansible.builtin.command: "echo 'Hi, This is the command module' > /tmp/ansible-command.txt" # This will not work as command module will not support the shell command.
+    #ansible.builtin.command: "echo 'Hi, This is the command module' > /tmp/ansible-command.txt" # This will not work as command module will not support the shell command.
     ansible.builtin.command: "echo 'Hi, This is the command module'"
 
 ...
