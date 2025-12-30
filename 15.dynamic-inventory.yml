@@ -1,0 +1,13 @@
+# Git will be installed in all the servers started with name Backend* fetched by the dynamic inventory 15.aws_ec2.yml file.
+- name: Dynamic inventory
+  hosts: all
+  become: yes
+  tasks:
+  - name: Install git
+    ansible.builtin.dnf:
+      name: git
+      state: latest
+
+
+# We must mention this aws_ec2.yml file name in the ansible_playbook command after -i to call the inventory details.
+# ansible_playbook -i aws_eec2.yml -e ansible_user=<user-name> -e ansible_password=<password> <playbook-name>

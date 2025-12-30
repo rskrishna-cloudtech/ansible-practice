@@ -1,0 +1,36 @@
+# This playbook is written to create 3 ec2 instances and update the route53 records with their IP addresses.
+- name: Create EC2 instanes and update the R53 records with those IP addresses.
+  hosts: all
+  vars:
+    zone: aws_route53
+    instances:
+    - db
+    - backend
+    - frontend
+  tasks:
+  - name: Creating EC2 instance.
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      image-id: ami-090252cbe067a9e58
+      instance_type: t2.micro
+      security_group: allow_all
+      tags:
+        Name: "{{ items }}"
+    loop: "{{ instances }}"
+    register: ec2_instances-info
+
+  - name: Printing the collected instance information.
+    ansible.builtin.debug:
+      msg: "The EC2 instance details are: {{ ec2_instances-info }}"
+
+  - name: Createing the R53 records.
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item }}.{{ zone }}"
+      type: A
+      value: "{{ item.instances.private_ip_address }}"
+      overwrites: true
+      ttl: 1
+    loop: "{{ ec2_instances-info.results}}"
+

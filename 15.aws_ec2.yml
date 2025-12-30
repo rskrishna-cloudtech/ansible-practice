@@ -1,0 +1,19 @@
+# Getting all the ec2 instances crated in the us-east-1 region from the aws account.
+plugin: amazon.aws.aws_ec2
+regions:
+- us-east-1
+
+# Grouping the servers based on the server name.
+keyed_groups:
+- key: tags['Name']
+  prefix: ''
+  parent_group: ''
+
+# Filtering the servers only with the required word in the Name.
+filters:
+  tag:Name: "Backend*"
+
+# This sets the ansible_host variable to connect with the private ip address of the server without changing the hostname.
+compose:
+  ansible_host: private_ip_adress
+
