@@ -17,8 +17,8 @@
         when: number | int > 10
 
     - name: Set the default value to the undefined values.
-      ansible.builtin.bebug:
-        msg: "The default value is: {{ number | default(100)}}"
+      ansible.builtin.debug:
+        msg: "The default value is: {{ variable | default('Default Value')}}"
 
     - name: Converting the lower case to UPPER case letters.
       vars:
