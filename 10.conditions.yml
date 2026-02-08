@@ -1,17 +1,17 @@
 # Checking the user in the remote node and creating a new user if the user is not  available..
 - name: Ansible Conditions.
-  hosts: localhost
+  hosts: remotenode
   vars:
     username: newuser
   tasks:
-  - name: Checking the user.
-    ansible.builtin.command: id {{username}}
-    register: id_output
-  
-  - name: Creating a new user if the user is not avaiable.
-    ansible.builtin.command: sudo useradd {{username}}
-    when: id_output.rc != 0
+    - name: Checking the user.
+      ansible.builtin.command: id {{username}}
+      register: id_output
 
-  - name: User created.
-    ansible.builtin.debug:
-      msg: "User {{username}} is created."
+    - name: Creating a new user if the user is not avaiable.
+      ansible.builtin.command: sudo useradd {{username}}
+      when: id_output.rc != 0
+
+    - name: User created.
+      ansible.builtin.debug:
+        msg: "User {{username}} is created."
