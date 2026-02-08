@@ -3,6 +3,6 @@
   vars:
     name: Siva
   tasks:
-  - name: Print the variable.
-    ansible.builtin.debug:
-      msg: "Hello, {{ name }}. Welcome."
+    - name: Print the variable.
+      ansible.builtin.debug:
+        msg: "Hello, {{ name }}. Welcome."
