@@ -1,11 +1,11 @@
 - name: Variable declaration via arguments.
   hosts: localhost
   tasks:
-  - name: Variable via arguments.
-    ansible.builtin.debug:
-      msg: "Hello, {{ name }}. Welcome."
+    - name: Variable via arguments.
+      ansible.builtin.debug:
+        msg: "Hello, {{ name }}. Welcome."
 
-
+        
 # We have to pass the variable in the argument as below.
-# ansible-playbook -i <invetory-file-name> -e "name=Siva" <ansible-playbook-name>
-# ansible-playbook -i <invetory-file-name> -e name=Siva <ansible-playbook-name>
+# ansible-playbook -i <inventory-file-name> -e "name=Siva" <ansible-playbook-name>
+# ansible-playbook -i <inventory-file-name> -e name=Siva <ansible-playbook-name>
