@@ -1,13 +1,12 @@
 ---
 - name: Ansible Loops
-  hosts: localhost
+  hosts: remotenode
   tasks:
-  - name: Installing multiple packages at a time using loops.
-    ansible.builtin.dnf:
-      name: "{{ item }}"
-      state: installed
-    loop:
-    - nginx
-    - git
-    - mysql
-...
+    - name: Installing multiple packages at a time using loops.
+      ansible.builtin.dnf:
+        name: "{{ item }}"
+        state: installed
+      loop:
+        - nginx
+        - git
+        - mysql
