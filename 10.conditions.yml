@@ -7,7 +7,7 @@
     - name: Checking the user.
       ansible.builtin.command: id {{username}}
       register: id_output
-      ignore_errors: true
+      ignore_errors: true # If this is not set then next statements will not execute when we get the error.
 
     - name: Creating a new user if the user is not avaiable.
       ansible.builtin.command: sudo useradd {{username}}
