@@ -7,7 +7,7 @@
         number: 6
       ansible.builtin.debug:
         msg: "The given number is < 10."
-        when: number | int > 10
+        when: number | int < 10
 
     - name: Converting the string into integer values.
       vars:
@@ -28,7 +28,7 @@
 
     - name: Converting the UPPER case to lower case letters.
       vars:
-        string: lowecase
+        string: lowercase
       ansible.builtin.debug:
         msg: "The lower case letters are: {{ string | lower }}"
 
