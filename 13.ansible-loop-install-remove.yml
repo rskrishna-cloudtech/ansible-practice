@@ -9,4 +9,4 @@
         state: "{{ item.state }}"
       loop:
         - { name: git, state: latest }
-        - { name: nginx, state: remove }
+        - { name: nginx, state: absent }
