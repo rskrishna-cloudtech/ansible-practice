@@ -7,14 +7,14 @@
         number: 6
       ansible.builtin.debug:
         msg: "The given number is < 10."
-        when: number | int < 10
+      when: number | int < 10
 
     - name: Converting the string into integer values.
       vars:
         number: 20
       ansible.builtin.debug:
         msg: "The given number is > 10"
-        when: number | int > 10
+      when: number | int > 10
 
     - name: Set the default value to the undefined values.
       ansible.builtin.debug:
