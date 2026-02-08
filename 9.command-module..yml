@@ -3,7 +3,7 @@
   tasks:
   - name: Command Module.
     ansible.builtin.command: ls -l sssssss
-    register: cmd_ouput
+    register: cmd_output
   - name: print the command output
     ansible.builtin.debug:
       msg: "Command output is: {{ cmd_output }}"
