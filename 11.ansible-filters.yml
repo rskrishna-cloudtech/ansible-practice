@@ -43,7 +43,7 @@
       listvalues: [1,2,3,4,5,6,7,8,9,100,0]
     ansible.builtin.debug:
       msg: "The minimum value from the list is: {{ listvalues | min }}"
-      msg: "The maximum value from the list is: {{ listvalues | max }}"
+      msg1: "The maximum value from the list is: {{ listvalues | max }}"
 
   - name: Converting the dictionary (Map) to items (List).
     vars:
